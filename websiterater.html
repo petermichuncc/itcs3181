@@ -1,0 +1,35 @@
+
+<body>
+<div class="container"
+     ng-app="websiterater"
+     ng-controller="websiteCtrl">
+
+    <header>
+      <div ng-app="">
+  <p>Please enter your name : <input type="text" ng-model="name"></p>
+  <h1>Hello {{name}}, let's add sites to review</h1>
+</div>
+    <h1></h1>
+ 
+    <!-- add a form below the h1 -->
+    <form class="new-site" ng-submit="addSite(newSite); newSite='';">
+      <input ng-model="newSite" type="text"
+             name="text" placeholder="Type to add website to review" />
+    </form>
+ 
+  </header>
+   <ul>
+    <li ng-repeat="site in sites">{{site.name}}</li>
+  </ul>
+
+  <ul>
+    <li ng-repeat="site in sites" ng-class="{'checked': site.checked}">
+      <button class="delete" ng-click="sites.remove(site)">&times;</button>
+ 
+      <input type="checkbox" ng-model="site.checked" class="toggle-checked" />
+ 
+      <span class="text">{{site.name}}</span>
+    </li>
+  </ul>
+ </div>
+</body>
